@@ -17,7 +17,6 @@ class Accel {
         Accel(uint32_t intervalMS) { _intervalMS = intervalMS; }
         bool begin();
         bool Update();
-        bool isDancing() const;
         float getLinearAcceleration() const;
 
         // This method takes a vector in 3 space (a == 0).

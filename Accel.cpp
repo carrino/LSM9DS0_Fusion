@@ -1,7 +1,6 @@
 #include "Accel.h"
 
 #define MOVING_AVERAGE_INTERVALS 20
-#define ACCEL_THRESHOLD 1
 #define COMPASS_ROTATE_FRACTION 0.05
 #define ACCELEROMETER_FRACTION 0.1
 #define ACCELEROMETER_CALIBRATE 0
@@ -107,8 +106,3 @@ const Quaternion Accel::getAbsoluteOrientation(const Quaternion &deviceVector) c
 float Accel::getLinearAcceleration() const {
     return _currentAccel;
 }
-
-bool Accel::isDancing() const {
-    return  _avgAbsAccel > ACCEL_THRESHOLD;
-}
-

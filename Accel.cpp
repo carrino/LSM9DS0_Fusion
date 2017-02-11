@@ -4,8 +4,8 @@
 #define COMPASS_ROTATE_FRACTION 0.05
 #define ACCELEROMETER_FRACTION 0.1
 #define ACCELEROMETER_CALIBRATE 0
-#define MAG_CALIBRATE_X 0.7
-#define MAG_CALIBRATE_Y -0.5
+#define MAG_CALIBRATE_X 0
+#define MAG_CALIBRATE_Y 0
 #define MAG_INVERT_Z -1.0
 
 bool Accel::begin() {

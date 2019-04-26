@@ -14,9 +14,9 @@ bool Accel::begin() {
       Serial.println("LSM!");
       while (1);
     }
-    // _lsm.setupAccel(_lsm.LSM9DS0_ACCELRANGE_4G);
+    _lsm.setupAccel(_lsm.LSM9DS1_ACCELRANGE_2G);
     // _lsm.setupMag(_lsm.LSM9DS0_MAGGAIN_2GAUSS);
-    _lsm.setupGyro(_lsm.LSM9DS0_GYROSCALE_500DPS);
+    _lsm.setupGyro(_lsm.LSM9DS1_GYROSCALE_500DPS);
         
     return true;
 }

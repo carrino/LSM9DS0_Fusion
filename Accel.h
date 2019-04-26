@@ -1,12 +1,12 @@
 #ifndef ACCEL_H
 #define ACCEL_H
 
-#include <Adafruit_LSM9DS0.h>
+#include <Adafruit_LSM9DS1.h>
 #include "Quaternion.h"
 
 class Accel {
     protected:
-        Adafruit_LSM9DS0 _lsm;
+        Adafruit_LSM9DS1 _lsm;
         uint32_t _lastUpdateMS;
         uint32_t _intervalMS;
         float _avgAbsAccel;
@@ -14,8 +14,13 @@ class Accel {
         int _count;
         Quaternion _q;
     public:
-        Accel(uint32_t intervalMS) { _intervalMS = intervalMS; }
-        bool begin();
+        //Normal Constructor
+		Accel(uint32_t intervalMS) { _intervalMS = intervalMS; }
+		//Software SPI Constructor
+		Accel(uint32_t intervalMS, int8_t sck, int8_t miso, int8_t mosi, int8_t xgcs, int8_t mcs) { _intervalMS = intervalMS; _lsm = Adafruit_LSM9DS1(sck, miso, mosi, xgcs, mcs); }
+        //Hardware SPI Constructor
+		Accel(uint32_t intervalMS, int8_t xgcs, int8_t mcs) { _intervalMS = intervalMS; _lsm = Adafruit_LSM9DS1(xgcs, mcs); }
+		bool begin();
         bool Update();
         float getLinearAcceleration() const;
 
